@@ -13,8 +13,8 @@ class Table extends React.Component{
     };
 
     sort = (e) => {
-        let column = e.target.cellIndex;
-        let data = this.props.initialData.slice();
+        let column = e.target.cellIndex; // gets the index of the clicked column header using the "cellIndex" property of the event target.
+        let data = this.props.initialData.slice(); // creates a shallow copy of the array
         let descending = this.state.sortby === column && !this.state.descending;
         data.sort(function (a, b) {
             return descending
@@ -31,7 +31,7 @@ class Table extends React.Component{
     showEditor = (e) => {
         this.setState({
             edit: {
-                row: parseInt(e.target.dataset.row, 10),
+                row: parseInt(e.target.dataset.row, 10), // integer with a base of 10.
                 cell: e.target.cellIndex,
             }
         });
@@ -58,6 +58,7 @@ class Table extends React.Component{
         let idx = e.target.dataset.idx;
         let searchdata = this.props.preSearchData.filter(function (row) {
             return row[idx].toString().toLowerCase().indexOf(needle) > -1;
+            // The indexOf() method returns the index of the first occurrence of the specified value in the string, and -1 if the value is not found.alue in the string,
         });
         this.setState({data: searchdata});
     };
