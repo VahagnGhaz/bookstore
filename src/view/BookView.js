@@ -2,26 +2,34 @@ import React from 'react';
 import {Layout, Carousel} from 'antd'
 import {HeaderInfo} from "../components/HeaderInfo";
 import {SideBar} from "../components/SideBar";
-import '../css/home.css'
-import {BookCarousel} from "../components/BookCarousel";
-import {SearchBar} from "../components/SearchBar";
-import {BookList} from "../components/BookList";
+import '../css/bookDetail.css'
+import {withRouter} from "react-router-dom";
+
+
+import {getBook} from "../services/bookService";
+import {BookDetail} from "../components/BookDetail";
 
 const { Header, Content, Footer } = Layout;
 
-// hardcode user
-const user = {"username": "vahagn"};
-
-class HomeView extends React.Component{
+class BookView extends React.Component{
 
     constructor(props) {
         super(props);
 
+        this.state = {books:null};
+
+
+
     }
 
     componentDidMount(){
-        // let user = localStorage.getItem("user");
+        let user = localStorage.getItem("user");
         this.setState({user:user});
+
+        const query = this.props.location.search;
+        const arr = query.split('&');
+        const bookId = arr[0].substr(4);
+        getBook(bookId, (data) => {this.setState({bookInfo: data})})
     }
 
     render(){
@@ -35,11 +43,9 @@ class HomeView extends React.Component{
                     <SideBar />
                     <Content style={{ padding: '0 50px' }}>
                         <div className="home-content">
-                            <SearchBar />
+                            <BookDetail info={this.state.bookInfo} />
 
-                            <BookCarousel />
-                            <BookList />
-                                <div className={"foot-wrapper"}>
+                            <div className={"foot-wrapper"}>
                             </div>
                         </div>
                     </Content>
@@ -49,4 +55,4 @@ class HomeView extends React.Component{
     }
 }
 
-export default HomeView;
+export default withRouter(BookView);

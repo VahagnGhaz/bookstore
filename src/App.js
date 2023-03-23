@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.css';
-import BasicRoute from "./Router";
-
+import BasicRouter from "./Router";
+import {
+    createBrowserRouter,
+    RouterProvider,
+  } from "react-router-dom";
+  
 class App extends React.Component {
 
 
     render() {
         return (
-            <BasicRoute/>
+            <RouterProvider router={BasicRouter} />
         );
     }
 }
