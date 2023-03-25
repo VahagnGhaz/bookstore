@@ -7,10 +7,10 @@ function Profile() {
     const [email, setEmail] = useState('');
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(`Submitted: ${firstName} ${lastName}, ${email}`);
-        // Here you can add code to submit the form data to a server or perform any other action
-    }
+    event.preventDefault();
+    console.log(`Submitted: ${firstName} ${lastName}, ${email}`);
+    // Here you can add code to submit the form data to a server or perform any other action
+}
 
     return (
         <div>

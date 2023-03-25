@@ -1,11 +1,11 @@
 import React from "react";
-import "./index.css";
+// import "./css/index.css";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import HomeView from "./view/HomeView";
-import Profile from "./routes/Profile";
+import Profile from "./view/ProfileView";
 import ErrorPage from "./view/ErrorPage";
 
 const BasicRouter = createBrowserRouter([

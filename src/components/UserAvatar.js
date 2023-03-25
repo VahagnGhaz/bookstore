@@ -1,6 +1,7 @@
 import React from 'react';
 import { Avatar, Dropdown, Menu} from 'antd';
-// import '../css/index.css'
+import '../css/index.css'
+import userPng from '../assets/prof-pic.jpg';
 // import * as userService from '../services/userService'
 // import config from 'config'
 
@@ -26,13 +27,12 @@ export class UserAvatar extends React.Component {
         const {user} = this.props;
 
         // const imgUrl = config.imgUrl + "/" + user.username + ".jpg";
-        const imgUrl = "_121141934-stock--tick-sign-element-simple.jpg";
 
         return(
             <div id="avatar">
                 <span className="name">Hi, {user.username}</span>
                 <Dropdown overlay={menu} placement="bottomRight">
-                    <Avatar src={imgUrl } style={{cursor:"pointer"}}/>
+                    <Avatar src={userPng} style={{cursor:"pointer"}}/>
                 </Dropdown>
             </div>
         );

@@ -64,7 +64,7 @@ export class SearchBar extends React.Component {
                     dataSource={dataSource.map(renderOption)}
                     onSelect={onSelect}
                     onSearch={this.handleSearch}
-                    placeholder="input here"
+                    placeholder="search a book"
                     optionLabelProp="text"
                 >
                     <Input
