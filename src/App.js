@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
-import BasicRouter from "./Router";
-import {
-    createBrowserRouter,
-    RouterProvider,
-} from "react-router-dom";
+import BasicRoute from "./Router";
 
 class App extends React.Component {
-    render() {
-        return (
-            <RouterProvider router={BasicRouter} />
-        );
-    }
+
+
+  render() {
+    return (
+        <BasicRoute/>
+    );
+  }
 }
+
+
 export default App;

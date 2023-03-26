@@ -29,7 +29,7 @@ const books = [{"bookId": "1",
 }
 ]
 
-class HomeView extends React.Component{
+class OrderView extends React.Component{
 
     constructor(props) {
         super(props);
@@ -47,11 +47,6 @@ class HomeView extends React.Component{
                     <Content style={{ padding: '0 50px' }}>
                         <div className="home-content">
                             <SearchBar />
-
-                            <BookCarousel />
-                            <BookList /> 
-                                <div className={"foot-wrapper"}>
-                            </div>
                         </div>
                     </Content>
             </Layout>
@@ -59,4 +54,4 @@ class HomeView extends React.Component{
     }
 }
 
-export default HomeView;
+export default OrderView;

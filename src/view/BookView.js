@@ -6,10 +6,21 @@ import '../css/bookDetail.css'
 import {withRouter} from "react-router-dom";
 
 
-import {getBook} from "../services/bookService";
+// import {getBook} from "../services/bookService";
 import {BookDetail} from "../components/BookDetail";
 
+
 const { Header, Content, Footer } = Layout;
+const user = {"username": "vahagn"};
+const data = {"bookId": "1",
+                "name": "Clean Code",
+                "type": "programming",
+                "price": "51.30",
+                "author":"Robert Cecil Martin" ,
+                "description": "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code.",
+                "inventory": 1000,
+                "image": "https://prodimage.images-bn.com/pimages/9781593279288_p0_v3_s600x595.jpg",
+            }
 
 class BookView extends React.Component{
 
@@ -23,13 +34,15 @@ class BookView extends React.Component{
     }
 
     componentDidMount(){
-        let user = localStorage.getItem("user");
+        // let user = localStorage.getItem("user");
+        
         this.setState({user:user});
 
         const query = this.props.location.search;
         const arr = query.split('&');
         const bookId = arr[0].substr(4);
-        getBook(bookId, (data) => {this.setState({bookInfo: data})})
+        this.setState({bookInfo: data})
+        // getBook(bookId, (data) => {this.setState({bookInfo: data})})
     }
 
     render(){
@@ -55,4 +68,4 @@ class BookView extends React.Component{
     }
 }
 
-export default withRouter(BookView);
+export default BookView;
