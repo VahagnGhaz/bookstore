@@ -1,0 +1,43 @@
+.form-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .form-field label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .form-field input[type="text"],
+  .form-field input[type="url"],
+  .form-field input[type="email"] {
+    font-size: 16px;
+    font-weight: bold;
+    width: calc(50% - 8px);
+    margin-right: 16px;
+  }
+  
+  .form-field .ant-avatar {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 16px;
+    display: inline-block;
+  }
+  
+  .form-field .avatar-upload-button {
+    display: inline-block;
+  }
+  
+  .form-field .notes-field {
+    display: inline-block;
+    width: calc(50% - 8px);
+    margin-left: 16px;
+    vertical-align: top;
+  }
+  
+  .form-submit {
+    margin-top: 16px;
+  }
+
+  

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.24.3",
+    "@ant-design/icons": "latest",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-app-rewired": "^2.1.5",

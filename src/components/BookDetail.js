@@ -1,49 +1,81 @@
 import React from 'react';
-import { Descriptions, Button } from 'antd';
+import "../css/bookDetail.css"
+import { List, Descriptions, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
-
-
-
-
-export class BookDetail extends React.Component{
+export default class BookDetail extends React.Component {
 
 
     render() {
 
-        const {info} = this.props;
+        const { info } = this.props;
 
-        if(info == null){
+        if (info == null) {
             return null;
         }
 
         return (
-            <div className={"content"}>
-                <div className={"book-detail"}>
-                    <div className={"book-image"}><img alt="image" src={info.image} style={{width:"350px", height:"350px"}}/></div>
-                    <div className={"descriptions"}>
-                        <Descriptions>
-                            <Descriptions.Item className={"title"} span={3}>{info.name}</Descriptions.Item>
-                            <Descriptions.Item label={"作者"} span={3}>{info.author}</Descriptions.Item>
-                            <Descriptions.Item label={"分类"} span={3}>{info.type}</Descriptions.Item>
-                            <Descriptions.Item label={"定价"} span={3}>{<span className={"price"}>{'¥' + info.price}</span>}</Descriptions.Item>
-                            <Descriptions.Item label={"状态 "} span={3}>{info.inventory !== 0? <span>有货 <span className={"inventory"}>库存{info.inventory}件</span></span> : <span className={"status"}>无货</span>}</Descriptions.Item>
-                            <Descriptions.Item label={"作品简介"} span={3}>{info.description}</Descriptions.Item>
-                        </Descriptions>
-                    </div>
-                </div>
-                <div className={"button-groups"}>
-                    <Button type="danger" icon="shopping-cart" size={"large"}>
+            <div className="content">
+                <Button type="primary">
+                    <Link to="/">Back</Link>
+                </Button>
+                <List
+                    grid={{ gutter: 16, column: 2 }}
+                    dataSource={[
+                        {
+                            title: '',
+                            content: <img alt="book cover" src={info.image} style={{ width: '100%' }} />,
+                        },
+                        {
+                            title: 'Name',
+                            content: info.name,
+                        },
+                        {
+                            title: 'Author',
+                            content: info.author,
+                        },
+                        {
+                            title: 'Type',
+                            content: info.type,
+                        },
+                        {
+                            title: 'Price',
+                            content: <span className="price">{'¥' + info.price}</span>,
+                        },
+                        {
+                            title: 'State',
+                            content: info.inventory !== 0 ? (
+                                <span>
+                                    In stock <span className="inventory">{info.inventory} left</span>
+                                </span>
+                            ) : (
+                                <span className="status">Sold Out</span>
+                            ),
+                        },
+                        {
+                            title: 'Introduction',
+                            content: info.description,
+                        },
+                    ]}
+                    renderItem={(item) => (
+                        <List.Item>
+                            <Descriptions title={item.title} bordered>
+                                <Descriptions.Item span={3}>{item.content}</Descriptions.Item>
+                            </Descriptions>
+                        </List.Item>
+                    )}
+                />
+
+                <div className="button-groups">
+                    <Button type="danger" icon="shopping-cart" size="large">
                         Add to Cart
                     </Button>
-
-                    <Button type="danger" icon="pay-circle" size={"large"} style={{marginLeft:"15%"}}ghost>
+                    <Button type="danger" icon="pay-circle" size="large" style={{ marginLeft: '15%' }} ghost>
                         Buy it now
                     </Button>
                 </div>
             </div>
-
-
-        )
+        );
 
     }
 

@@ -13,21 +13,6 @@ const { Header, Content, Footer } = Layout;
 
 // hardcode data
 const user = {"username": "vahagn"};
-const books = [{"bookId": "1",
-"name": "Clean Code",
-"price": "51.30",
-"image": "https://prodimage.images-bn.com/pimages/9781593279288_p0_v3_s600x595.jpg",
-"author":"Robert Cecil Martin" ,
-"description": "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code."
-}, 
-{"bookId": "2",
-"name": "C++",
-"price": "22",
-"image": "https://img3.doubanio.com/view/subject/m/public/s27272780.jpg",
-"author":"vahag" ,
-"description": "aa"
-}
-]
 
 class HomeView extends React.Component{
 

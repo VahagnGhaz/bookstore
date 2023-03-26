@@ -1,54 +1,103 @@
 import React from 'react';
-import {Layout, Carousel} from 'antd'
-import {HeaderInfo} from "../components/HeaderInfo";
-import {SideBar} from "../components/SideBar";
+import { Layout, Carousel, Table, Button } from 'antd'
+import { HeaderInfo } from "../components/HeaderInfo";
+import { SideBar } from "../components/SideBar";
 import 'antd/dist/antd.css';
 import '../css/home.css'
-import {BookCarousel} from "../components/BookCarousel";
-import {SearchBar} from "../components/SearchBar";
-import {BookList} from "../components/BookList";
+import { BookCarousel } from "../components/BookCarousel";
+import { SearchBar } from "../components/SearchBar";
+import { BookList } from "../components/BookList";
 import { Outlet, Link } from "react-router-dom";
+import book1 from "../assets/book1.jpg"
+import book2 from "../assets/book2.jpg"   
 
 const { Header, Content, Footer } = Layout;
 
 // hardcode data
-const user = {"username": "vahagn"};
+const user = { "username": "vahagn" };
 const books = [{"bookId": "1",
-"name": "Clean Code",
-"price": "51.30",
-"image": "https://prodimage.images-bn.com/pimages/9781593279288_p0_v3_s600x595.jpg",
-"author":"Robert Cecil Martin" ,
-"description": "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. Every year, countless hours and significant resources are lost because of poorly written code."
-}, 
-{"bookId": "2",
-"name": "C++",
-"price": "22",
-"image": "https://img3.doubanio.com/view/subject/m/public/s27272780.jpg",
-"author":"vahag" ,
-"description": "aa"
-}
-]
+                "name": "Clean Code",
+                "price": "51.30",
+                "image": <img width="80" height="100" src={book1} alt="Product" />  ,
+                "author":"Robert Cecil Martin" ,
+                "type":"Programming",
+                "inventory": 79,
+                "description": "The first describes the principles, patterns, and practices of writing clean code. The second part consists of several case studies of increasing complexity.",
+                "action": <Button type="link" className="remove-button">Remove</Button>,
 
-class Cart extends React.Component{
+            }, 
+            {"bookId": "2",
+                "name": "Intro to Algorithms",
+                "price": "40.5",
+                "image": <img width="80" height="100" src={book2} alt="Product" />   ,
+                "author":"Thomas H. Cormen" ,
+                "type":"Programming",
+                "inventory": 13,
+                "description": "Some books on algorithms are rigorous but incomplete; others cover masses of material but lack rigor. Introduction to Algorithms uniquely combines rigor and comprehensiveness. The book covers a broad range of algorithms in depth, yet makes their design and analysis accessible to all levels of readers.",
+                "action": <Button type="link" className="remove-button">Remove</Button>,
+
+            }, ];
+
+const columns = [
+  {
+    title: 'Cover',
+    dataIndex: 'image',
+    key: 'image',
+    className: 'cover-column',
+  },
+  {
+    title: 'Title',
+    dataIndex: 'name',
+    key: 'name',
+    className: 'title-column',
+  },
+  {
+    title: 'Amount',
+    dataIndex: 'inventory',
+    key: 'inventory',
+    className: 'amount-column',
+  },
+  {
+    title: 'Price',
+    dataIndex: 'price',
+    key: 'price',
+    className: 'price-column',
+  },
+  {
+    title: 'Action',
+    dataIndex: 'action',
+    key: 'action',
+    className: 'action-column',
+  },
+];
+
+class Cart extends React.Component {
 
     constructor(props) {
         super(props);
 
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // let user = localStorage.getItem("user");
-        this.setState({user:user});
+        this.setState({ user: user });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Layout className="layout">
-                    <Content style={{ padding: '0 50px' }}>
-                        <div className="home-content">
-                            <SearchBar />
-                        </div>
-                    </Content>
+                <Content style={{ padding: '0 50px' }}>
+                    <div className="form-header">My Shopping Cart</div>
+                    <div className="home-content">
+                        <SearchBar />
+                    </div>
+                    <Table
+                        className="shopping-cart"
+                        dataSource={books}
+                        columns={columns}
+                        pagination={false}
+                    />
+                </Content>
             </Layout>
         );
     }
