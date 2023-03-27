@@ -1,25 +1,17 @@
 import React from 'react';
-import {Layout, Carousel} from 'antd'
-import {HeaderInfo} from "../components/HeaderInfo";
-import {SideBar} from "../components/SideBar";
+import {Layout} from 'antd'
 import 'antd/dist/antd.css';
-import '../css/home.css'
+import '../css/main.css'
 import {BookCarousel} from "../components/BookCarousel";
 import {SearchBar} from "../components/SearchBar";
 import {BookList} from "../components/BookList";
-import { Outlet, Link } from "react-router-dom";
 
-const { Header, Content, Footer } = Layout;
+const {Content } = Layout;
 
 // hardcode data
 const user = {"username": "vahagn"};
 
 class HomeView extends React.Component{
-
-    constructor(props) {
-        super(props);
-
-    }
 
     componentDidMount(){
         // let user = localStorage.getItem("user");

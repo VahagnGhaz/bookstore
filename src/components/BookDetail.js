@@ -1,5 +1,5 @@
 import React from 'react';
-import "../css/bookDetail.css"
+import "../css/book.css"
 import { List, Descriptions, Button } from 'antd';
 import { Link } from 'react-router-dom';
 
@@ -15,8 +15,9 @@ export default class BookDetail extends React.Component {
         }
 
         return (
-            <div className="content">
-                <Button type="primary">
+            // change absalute position to relative
+                <div className="content">
+                <Button type="primary" style={{ marginRight: "800px", marginBottom: '20px'  }}>
                     <Link to="/">Back</Link>
                 </Button>
                 <List

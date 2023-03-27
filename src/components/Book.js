@@ -16,7 +16,7 @@ export class Book extends React.Component{
             <Link to={{
                 pathname: '/bookDetails',
                 search: '?id=' + info.bookId}}
-                target="_blank"
+                target="_self"
             >
             <Card
                 hoverable

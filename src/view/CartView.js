@@ -1,17 +1,12 @@
 import React from 'react';
-import { Layout, Carousel, Table, Button } from 'antd'
-import { HeaderInfo } from "../components/HeaderInfo";
-import { SideBar } from "../components/SideBar";
+import { Layout, Table, Button } from 'antd'
 import 'antd/dist/antd.css';
-import '../css/home.css'
-import { BookCarousel } from "../components/BookCarousel";
+import '../css/main.css'
 import { SearchBar } from "../components/SearchBar";
-import { BookList } from "../components/BookList";
-import { Outlet, Link } from "react-router-dom";
 import book1 from "../assets/book1.jpg"
 import book2 from "../assets/book2.jpg"   
 
-const { Header, Content, Footer } = Layout;
+const { Content } = Layout;
 
 // hardcode data
 const user = { "username": "vahagn" };
@@ -71,12 +66,7 @@ const columns = [
   },
 ];
 
-class Cart extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-    }
+class CartView extends React.Component {
 
     componentDidMount() {
         // let user = localStorage.getItem("user");
@@ -103,4 +93,4 @@ class Cart extends React.Component {
     }
 }
 
-export default Cart;
+export default CartView;

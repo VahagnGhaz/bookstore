@@ -6,7 +6,7 @@ import profile from "../assets/prof-pic.jpg"
 const { Dragger } = Upload;
 const FormItem = Form.Item;
 
-class ProfileForm extends Component {
+class ProfileView extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -104,4 +104,4 @@ class ProfileForm extends Component {
 }
 }
 
-export default Form.create()(ProfileForm);
+export default Form.create()(ProfileView);

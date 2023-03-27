@@ -1,47 +1,28 @@
-html {
-    background: white;
-    font: 16px Arial;
+.book-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px 0;
 }
 
-input {
-    font: 16px Arial;
+.cover-image img {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    margin-right: 20px;
 }
 
-td {
-    border-top: 1px solid black;
-    cursor: cell;
-    padding: 5px;
+.book-info h2 {
+    font-size: 24px;
+    margin: 0;
 }
 
-th {
-    cursor: pointer;
-    padding: 5px;
+.book-info .author {
+    font-size: 16px;
+    margin: 10px 0;
 }
 
-table {
-    border: 1px solid black;
-    margin: 20px;
-}
-
-.toolbar {
-    margin-left: 20px;
-}
-
-.toolbar a, .toolbar button { /* thanks css3buttongenerator.com! */
-    background: #3498db;
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-    border-radius: 28px;
-    box-shadow: 0px 1px 3px #666666;
-    color: #ffffff;
+.book-info .description {
     font-size: 14px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    border: 0;
-    margin-right: 5px;
-}
-
-.toolbar a:hover, .toolbar button:hover {
-    background: #3cb0fd;
-    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
-    text-decoration: none;
+    margin: 10px 0;
 }

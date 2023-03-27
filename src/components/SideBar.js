@@ -30,31 +30,35 @@ export class SideBar extends React.Component {
             <>
             <div style={{ width: this.state.collapsed ? "80px" : "180px", maxWidth: this.state.collapsed ? "80px" : "180px", minWidth: this.state.collapsed ? "80px" : "180px" }}>
                 <div className="mySider">
-                    <Sider collapsible collapsed={this.state.collapsed} width="180px" onCollapse={this.onCollapse} className="sider" style={{ background: '#fff' }}>
-                        <Menu defaultSelectedKeys={['1']} mode="inline">
-                            <Menu.Item key="1" onClick={this.bookOnClick}>
+                    <Sider collapsible collapsed={this.state.collapsed} width="180px" onCollapse={this.onCollapse} className="sider" style={{ background: '#fff', flexDirection: 'column-reverse' }} reverseArrow>
+                        <Menu defaultSelectedKeys={['1']} mode="inline" style={ {marginTop: '60px'}}>
+                            <Menu.Item key="1" >
                                 <Icon type="book" style={{ fontSize: '18px' }} />
                                 <span style={{ fontSize: '16px' }}>
-                                    <Link style={{ color: 'gray' }} to={`/`}>Books</Link>
+                                    Books
                                 </span>
+                                <Link style={{ color: 'gray' }} to={`/`}></Link>
                             </Menu.Item>
                             <Menu.Item key="2">
                                 <Icon type="shopping-cart" style={{ fontSize: '18px' }} />
-                                <span style={{ fontSize: '16px',  color: 'red'}}>
-                                     <Link style={{ color: 'gray' }} to={`cart`}>My Cart</Link>
+                                <span style={{ fontSize: '16px'}}>
+                                     My Cart
                                 </span>
+                                <Link style={{ color: 'gray' }} to={`cart`}></Link>
                             </Menu.Item>
                             <Menu.Item key="3">
                                 <Icon type="unordered-list" style={{ fontSize: '18px' }} />
                                 <span style={{ fontSize: '16px' }}>
-                                    <Link style={{ color: 'gray' }}  to={`orders`}>My Orders</Link>
+                                    Orders
                                 </span>
+                                <Link style={{ color: 'gray' }}  to={`orders`}></Link>
                             </Menu.Item>
                             <Menu.Item key="4">
                                 <Icon type="user" style={{ fontSize: '18px' }} />
                                 <span style={{ fontSize: '16px' }}>
-                                    <Link style={{ color: 'gray' }}  to={`profile`}>My Profile</Link>
+                                    My Profile
                                 </span>
+                                <Link style={{ color: 'gray' }}  to={`profile`}></Link>
                             </Menu.Item>
                         </Menu>
                     </Sider>
