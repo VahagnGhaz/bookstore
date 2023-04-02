@@ -4,7 +4,6 @@ import { Menu, Layout, Icon } from 'antd'
 import { Outlet, Link } from "react-router-dom";
 import '../css/index.css'
 
-const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 export class SideBar extends React.Component {

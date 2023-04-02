@@ -9,14 +9,16 @@ import BookView from "./view/BookView";
 import OrderView from "./view/OrderView";
 import CartView from "./view/CartView";
 import LayoutView from "./view/LayoutView";
+import LoginView from "./view/LoginView";
 
 class BasicRoute extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LayoutView />}>
-            <Route index element={<HomeView />} />
+            <Route index path="login" element={<LoginView />} />
+            <Route path="/" element={<LayoutView />}>
+            <Route path="/" element={<HomeView />} />
             <Route path="cart" element={<CartView />} />
             <Route path="bookDetails" element={<BookView />} />
             <Route path="orders" element={<OrderView />} />
